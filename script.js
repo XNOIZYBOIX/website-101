@@ -1,5 +1,26 @@
 // WebSocket connection
-const ws = new WebSocket('ws://localhost:8080');
+const ws = new WebSocket('wss://your-websocket-server.com'); // Changed to secure websocket
+
+// Online users tracking
+let onlineUsers = 0;
+const onlineCountElement = document.getElementById('online-count');
+const nicknameDisplay = document.getElementById('nickname-display');
+
+// Update online users display
+function updateOnlineUsers(count) {
+  onlineUsers = count;
+  onlineCountElement.textContent = count;
+}
+
+// Request online users count every 10 seconds
+setInterval(() => {
+  ws.send(JSON.stringify({ type: 'get_online_users' }));
+}, 10000);
+
+// Handle online users response
+function handleOnlineUsers(data) {
+  updateOnlineUsers(data.count);
+}
 
 // DOM Elements
 const chatWindow = document.getElementById('chat-window');

@@ -11,12 +11,24 @@ body {
   }
   
   #chat-container {
-    background-color: #5c0000; /* Dark blood red */
+    background-color: #5c0000;
     border: 1px solid #3a0000;
     border-radius: 5px;
-    width: 400px;
+    width: 600px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(90, 0, 0, 0.5);
+    display: flex;
+    gap: 20px;
+  }
+
+  #sidebar {
+    width: 150px;
+    border-right: 1px solid #3a0000;
+    padding-right: 20px;
+  }
+
+  #main-chat {
+    flex: 1;
   }
   
   /* Nickname Modal */
@@ -64,12 +76,29 @@ body {
   }
 
   #chat-window {
-    height: 300px;
-    overflow-y: scroll;
+    height: 400px;
+    min-height: 200px;
+    max-height: 70vh;
+    overflow-y: auto;
     border: 1px solid #3a0000;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 15px;
     background-color: #1a0000;
+    scrollbar-width: thin;
+    scrollbar-color: #5c0000 #1a0000;
+  }
+
+  #chat-window::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #chat-window::-webkit-scrollbar-track {
+    background: #1a0000;
+  }
+
+  #chat-window::-webkit-scrollbar-thumb {
+    background-color: #5c0000;
+    border-radius: 4px;
   }
   
   #input-area {

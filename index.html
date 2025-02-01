@@ -18,11 +18,17 @@
 
   <!-- Chat Container (hidden until nickname is set) -->
   <div id="chat-container" style="display: none;">
-    <h1>Public Chat Room</h1>
-    <div id="chat-window"></div>
-    <div id="input-area">
-      <input type="text" id="message" placeholder="Type your message here">
-      <button id="send-button">Send</button>
+    <div id="sidebar">
+      <h2>Online Users (<span id="online-count">0</span>)</h2>
+      <div id="nickname-display"></div>
+    </div>
+    <div id="main-chat">
+      <h1>Public Chat Room</h1>
+      <div id="chat-window"></div>
+      <div id="input-area">
+        <input type="text" id="message" placeholder="Type your message here">
+        <button id="send-button">Send</button>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
