@@ -1,5 +1,5 @@
 // WebSocket connection
-const ws = new WebSocket('wss://your-websocket-server.com'); // Changed to secure websocket
+const ws = new WebSocket('ws://localhost:8080'); // Updated to local WebSocket server
 
 // Online users tracking
 let onlineUsers = 0;
@@ -10,6 +10,21 @@ const nicknameDisplay = document.getElementById('nickname-display');
 function updateOnlineUsers(count) {
   onlineUsers = count;
   onlineCountElement.textContent = count;
+}
+
+// Function to update the online users list
+function updateUserList(users) {
+  const userList = users.map(user => `<div class="user">${user}</div>`).join('');
+  nicknameDisplay.innerHTML = `<h2>Online Users (${users.length})</h2>${userList}`;
+}
+
+// Function to add a system message to the chat window
+function addSystemMessage(text) {
+  const messageElement = document.createElement('div');
+  messageElement.className = 'system-message';
+  messageElement.textContent = text;
+  chatWindow.appendChild(messageElement);
+  chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll to the bottom
 }
 
 // Request online users count every 10 seconds
@@ -48,9 +63,25 @@ startChatButton.addEventListener('click', () => {
 });
 
 // Handle incoming WebSocket messages
-ws.onmessage = function(event) {
+ws.onmessage = function (event) {
   const data = JSON.parse(event.data);
-  addMessage(data.username, data.message);
+
+  switch (data.type) {
+    case 'message':
+      addMessage(data.username, data.message);
+      break;
+
+    case 'online_users':
+      updateUserList(data.users);
+      break;
+
+    case 'system_message':
+      addSystemMessage(data.message);
+      break;
+
+    default:
+      console.warn('Unknown message type:', data.type);
+  }
 };
 
 // Function to add a message to the chat window

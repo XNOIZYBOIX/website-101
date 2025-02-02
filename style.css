@@ -9,6 +9,14 @@ body {
     height: 100vh;
     color: #fff;
   }
+
+  .system-message {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9em;
+  }
   
   #chat-container {
     background-color: #5c0000;
