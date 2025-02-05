@@ -27,6 +27,22 @@ wss.on('connection', (ws) => {
         broadcastMessage(username, data.content);
         break;
 
+      case 'file':
+        // Broadcast file to all clients
+        const fileUser = onlineUsers.get(ws);
+        wss.clients.forEach(client => {
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify({
+              type: 'file',
+              username: fileUser,
+              filename: data.filename,
+              content: data.content,
+              filetype: data.filetype
+            }));
+          }
+        });
+        break;
+
       case 'get_online_users':
         // Send the list of online users to the requesting client
         ws.send(JSON.stringify({

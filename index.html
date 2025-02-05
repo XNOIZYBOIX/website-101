@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Public Chat Room</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatSphere - Anonymous Chat & File Sharing</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Nickname Modal -->
-  <div id="nickname-modal" style="display: block;">
-    <div class="modal-content">
-      <h2>Enter Your Nickname</h2>
-      <input type="text" id="nickname-input" placeholder="Choose a nickname">
-      <button id="start-chat">Start Chatting</button>
-    </div>
-  </div>
+    <header>
+        <h1>ChatSphere</h1>
+        <p class="tagline">Chat Anonymously, Share Freely</p>
+    </header>
 
-  <!-- Chat Container (hidden until nickname is set) -->
-  <div id="chat-container" style="display: none;">
-    <div id="sidebar">
-      <h2>Online Users (<span id="online-count">0</span>)</h2>
-      <div id="nickname-display"></div>
-    </div>
-    <div id="main-chat">
-      <h1>Public Chat Room</h1>
-      <div id="chat-window"></div>
-      <div id="input-area">
-        <input type="text" id="message" placeholder="Type your message here">
-        <button id="send-button">Send</button>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <section class="hero">
+        <div class="container">
+            <h2>Instant Anonymous Chatting</h2>
+            <p>Join the conversation without accounts or commitments!</p>
+            <ul class="features">
+                <li>🚀 Temporary usernames - no sign-up needed</li>
+                <li>💬 Public rooms & private groups</li>
+                <li>📤 Share files up to 500MB</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="security">
+        <div class="container">
+            <h3>Safe & Secure Communication</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>🔒 Encrypted Chats</h4>
+                    <p>Military-grade encryption protects every message</p>
+                </div>
+                <div class="card">
+                    <h4>🤖 AI Moderation</h4>
+                    <p>Automatic spam detection and content filtering</p>
+                </div>
+                <div class="card">
+                    <h4>💨 Ephemeral Content</h4>
+                    <p>Files and messages disappear when you leave</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h3>Who's Chatting?</h3>
+            <div class="audiences">
+                <p>🌍 Social explorers</p>
+                <p>👥 Remote teams</p>
+                <p>🎨 Creative collaborators</p>
+            </div>
+            <div class="premium">
+                <h4>Premium Upgrades Available</h4>
+                <ul>
+                    <li>🎨 Custom themes</li>
+                    <li>🚫 Ad-free experience</li>
+                    <li>⚡ Priority file transfers</li>
+                </ul>
+            </div>
+            <a href="#start" class="button">Start Chatting Now →</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Visit ChatSphere.com to begin your anonymous journey!</p>
+    </footer>
 </body>
 </html>

@@ -1,136 +1,143 @@
+:root {
+    --primary: #4A90E2;
+    --secondary: #FF6B6B;
+    --accent: #A0DEFF;
+    --dark: #2C3E50;
+    --light: #F5F7FA;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
     margin: 0;
+    background: linear-gradient(135deg, var(--light) 0%, #FFFFFF 100%);
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: var(--dark);
+    color: white;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: var(--primary);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.features {
+    list-style: none;
     padding: 0;
     display: flex;
+    gap: 2rem;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-  }
+    flex-wrap: wrap;
+}
 
-  .system-message {
-    color: #888;
-    font-style: italic;
+.features li {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+}
+
+.security {
+    padding: 4rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.cta {
     text-align: center;
-    margin: 10px 0;
-    font-size: 0.9em;
-  }
-  
-  #chat-container {
-    background-color: #5c0000;
-    border: 1px solid #3a0000;
-    border-radius: 5px;
-    width: 600px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(90, 0, 0, 0.5);
-    display: flex;
-    gap: 20px;
-  }
+    padding: 4rem 0;
+    background: var(--accent);
+}
 
-  #sidebar {
-    width: 150px;
-    border-right: 1px solid #3a0000;
-    padding-right: 20px;
-  }
+.button {
+    display: inline-block;
+    background: var(--secondary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
 
-  #main-chat {
-    flex: 1;
-  }
-  
-  /* Nickname Modal */
-  #nickname-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
+.button:hover {
+    background: #FF5252;
+    transform: scale(1.05);
+}
+
+.audiences {
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+    gap: 2rem;
+    margin: 2rem 0;
+}
 
-  .modal-content {
-    background-color: #3a0000;
-    padding: 30px;
-    border-radius: 8px;
+.premium {
+    background: rgba(255,255,255,0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+footer {
     text-align: center;
-  }
+    padding: 2rem;
+    background: var(--dark);
+    color: white;
+}
 
-  .modal-content h2 {
-    color: #fff;
-    margin-bottom: 20px;
-  }
-
-  #nickname-input {
-    padding: 12px;
-    width: 200px;
-    margin-bottom: 15px;
-    background: #1a0000;
-    border: 1px solid #5c0000;
-    color: #fff;
-  }
-
-  #start-chat {
-    padding: 12px 25px;
-    background: #5c0000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  #chat-window {
-    height: 400px;
-    min-height: 200px;
-    max-height: 70vh;
-    overflow-y: auto;
-    border: 1px solid #3a0000;
-    margin-bottom: 10px;
-    padding: 15px;
-    background-color: #1a0000;
-    scrollbar-width: thin;
-    scrollbar-color: #5c0000 #1a0000;
-  }
-
-  #chat-window::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  #chat-window::-webkit-scrollbar-track {
-    background: #1a0000;
-  }
-
-  #chat-window::-webkit-scrollbar-thumb {
-    background-color: #5c0000;
-    border-radius: 4px;
-  }
-  
-  #input-area {
-    display: flex;
-    gap: 10px;
-  }
-  
-  #nickname, #message {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1;
-  }
-  
-  #send-button {
-    padding: 10px;
-    border: none;
-    background-color: #28a745;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #send-button:hover {
-    background-color: #218838;
-  }
-  
+@media (max-width: 768px) {
+    .features li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .audiences {
+        flex-direction: column;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
